@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#rotate-icon {
+				width: 80px;
+				height: 80px;
+				border-top: 5px solid rgba(234, 234, 234, 0.3);
+				border-right: 5px solid rgba(234, 234, 234, 0.3);
+				border-bottom: 5px solid rgba(234, 234, 234, 0.3);
+				border-left: 5px solid pink;
+				border-radius: 50%;
+				transition: all 1s ease 0s;
+				position: relative;
+			}
+			
+			#rotate-img {
+				width: 74px;
+				height: 74px;
+				margin: 0 auto;
+				position: absolute;
+				top: 3px;
+				left: 3px;
+				border-radius: 50%;
+				background: darkturquoise;
+			}
+			
+			#rotate-icon:hover {
+				transform: rotate(360deg)
+			}
+			
+			#contains {
+				perspective: 800px;
+				width: 800px;
+				height: 500px;
+				margin: 20px auto;
+			}
+			
+			#bigbox {
+				width: 800px;
+				height: 800px;
+			}
+			
+			#pic {
+				transition: all 2s ease 0s;
+				width: 800px;
+				height: 500px;
+				margin: 0 auto;
+				position: relative;
+				transform-style: preserve-3d;
+				animation:rotateY360 10s ease-in-out infinite;
+			}
+			
+			#pic:hover {
+				transform: rotateY(360deg);
+			}
+			
+			#pic img {
+				width: 300px;
+				height: 150px;
+				line-height: 100px;
+				text-align: center;
+				box-shadow: 0 0 20px rgba(0, 0, 0, 0.9)inset;
+				position: absolute;
+				top: 160px;
+				left: 300px;
+			}
+			
+			#pic img:nth-child(1) {
+				transform: rotateY(0deg)translateZ(300px);
+			}
+			
+			#pic img:nth-child(2) {
+				transform: rotateY(60deg)translateZ(300px);
+			}
+			
+			#pic img:nth-child(3) {
+				transform: rotateY(120deg)translateZ(300px);
+			}
+			
+			#pic img:nth-child(4) {
+				transform: rotateY(180deg)translateZ(300px);
+			}
+			
+			#pic img:nth-child(5) {
+				transform: rotateY(240deg)translateZ(300px);
+			}
+			
+			#pic img:nth-child(6) {
+				transform: rotateY(300deg)translateZ(300px);
+			}
+			
+			@keyframes rotateY360 {
+				from {
+					transform: rotateY(0deg);
+				}
+				to {
+					transform: rotateY(360deg);
+				}
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+		<div id="rotate-icon">
+			<div id="rotate-img"></div>
+		</div>
+		<div id="contains">
+			<div id="bigbox">
+				<div id="pic">
+					<img src="img/portfolio-1.jpg" class="pic-contains" />
+					<img src="img/portfolio-2.jpg" class="pic-contains" />
+					<img src="img/portfolio-3.jpg" class="pic-contains" />
+					<img src="img/portfolio-4.jpg" class="pic-contains" />
+					<img src="img/portfolio-5.jpg" class="pic-contains" />
+					<img src="img/portfolio-6.jpg" class="pic-contains" />
+				</div>
+			</div>
+		</div>
+	</body>
+	<!--<script type="text/javascript">
+		var contains = document.getElementById("contains");
+		var bigbox = document.getElementById("bigbox");
+		var pic = document.getElementById("pic");
+		var img = document.getElementsByClassName("pic-contains");
+		for(i = 0; i < img.length; i++) {
+			img[this.index] = i;
+			img[i].onmousemove = function() {
+				for(i = 0; i < img.length; i++) {
+				pic.style.transform = "rotateY(0deg)";
+				}
+				pic.style.transform = "rotateY("+[this.index]*"60deg)";
+			}
+
+		}
+	</script>-->
+
+</html>
