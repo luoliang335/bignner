@@ -10,6 +10,10 @@
 				padding: 0;
 			}
 			
+			body {
+				background: black;
+			}
+			
 			#rotate-icon {
 				width: 80px;
 				height: 80px;
@@ -38,10 +42,10 @@
 			}
 			
 			#contains {
-				perspective: 800px;
+				perspective: 600px;
 				width: 800px;
 				height: 500px;
-				margin: 20px auto;
+				margin: 100px auto;
 			}
 			
 			#bigbox {
@@ -56,11 +60,7 @@
 				margin: 0 auto;
 				position: relative;
 				transform-style: preserve-3d;
-				animation:rotateY360 10s ease-in-out infinite;
-			}
-			
-			#pic:hover {
-				transform: rotateY(360deg);
+				animation: rotateY360 10s ease-in-out infinite;
 			}
 			
 			#pic img {
@@ -75,27 +75,27 @@
 			}
 			
 			#pic img:nth-child(1) {
-				transform: rotateY(0deg)translateZ(300px);
+				transform: rotateY(0deg)translateZ(340px);
 			}
 			
 			#pic img:nth-child(2) {
-				transform: rotateY(60deg)translateZ(300px);
+				transform: rotateY(60deg)translateZ(340px);
 			}
 			
 			#pic img:nth-child(3) {
-				transform: rotateY(120deg)translateZ(300px);
+				transform: rotateY(120deg)translateZ(340px);
 			}
 			
 			#pic img:nth-child(4) {
-				transform: rotateY(180deg)translateZ(300px);
+				transform: rotateY(180deg)translateZ(340px);
 			}
 			
 			#pic img:nth-child(5) {
-				transform: rotateY(240deg)translateZ(300px);
+				transform: rotateY(240deg)translateZ(340px);
 			}
 			
 			#pic img:nth-child(6) {
-				transform: rotateY(300deg)translateZ(300px);
+				transform: rotateY(300deg)translateZ(340px);
 			}
 			
 			@keyframes rotateY360 {
@@ -105,6 +105,19 @@
 				to {
 					transform: rotateY(360deg);
 				}
+			}
+			
+			#pic div {
+				width: 1200px;
+				height: 1200px;
+				border-radius: 50%;
+				position: absolute;
+				top: 102%;
+				left: 50%;
+				margin-left: -600px;
+				margin-top: -600px;
+				transform: rotateX(90deg);
+				background: -webkit-radial-gradient(center center, 600px 600px, rgba(158, 158, 222, 0.5), rgba(0, 0, 0, 0));
 			}
 		</style>
 
@@ -124,6 +137,9 @@
 					<img src="img/portfolio-4.jpg" class="pic-contains" />
 					<img src="img/portfolio-5.jpg" class="pic-contains" />
 					<img src="img/portfolio-6.jpg" class="pic-contains" />
+					<div id="">
+
+					</div>
 				</div>
 			</div>
 		</div>

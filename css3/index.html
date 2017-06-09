@@ -1,39 +1,123 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
+<!doctype html>
+<html lang="en" onmousedown="return false">
 <head>
-<meta charset="utf-8" />
-<title>background-clip_CSS参考手册_web前端开发参考手册系列</title>
-<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
-<style>
-h1{font-size:20px;}
-h2{font-size:16px;}
-p{width:200px;height:200px;margin:0;padding:20px;border:10px dashed #666;background:#aaa url(skin/p_103x196_1.jpg) no-repeat;}
-.border-box p{background-clip:border-box;}
-.padding-box p{background-clip:padding-box;}
-.content-box p{background-clip:content-box;}
-.text p{width:auto;height:auto;background-repeat:repeat;-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:bold;font-size:120px;}
-</style>
+    <meta charset="utf-8" />
+    <title>doc</title>
+    <style type="text/css">
+        * {
+            margin:0px;
+            padding:0px;
+        }
+       .pic {
+            margin:100px auto 0px;
+            /*border:1px solid #ff0000;*/
+            width:120px;
+            height:180px;
+            position:relative;
+            transform-style:preserve-3d;
+            transform:perspective(800px) rotateX(-10deg) rotateY(0deg);
+            
+        }
+        body {
+            background-color:#000000;
+        }
+       div.pic img {
+           cursor:pointer;
+            position:absolute;
+            width:100%;
+            height:100%;
+            border-radius:5px;
+         
+         
+        }
+        p{
+            width:1200px;
+            height:1200px;
+            
+            position:absolute;
+            left:50%;top:100%;
+            margin-top:-600px;
+            margin-left:-600px;
+            transform:rotateX(90deg);
+            border-radius:600px;
+            
+        }
+    </style>
+    <!--<script language="javascript">
+        function imgdragstart() { return false;}
+    </script>-->
+
 </head>
-<body>
-<h1>background-clip</h1>
-<ul class="test">
-	<li class="border-box">
-		<h2>border-box</h2>
-		<p>从border区域（不含border）开始向外裁剪背景</p>
-	</li>
-	<li class="padding-box">
-		<h2>padding-box</h2>
-		<p>从padding区域（不含padding）开始向外裁剪背景</p>
-	</li>
-	<li class="content-box">
-		<h2>content-box</h2>
-		<p>从content区域开始向外裁剪背景</p>
-	</li>
-	<li class="text">
-		<h2>text</h2>
-		<p>从前景内容的形状作为裁剪区域向外裁剪背景</p>
-	</li>
-</ul>
+<body style="width:100%;height:100%">
+    <div class="pic">
+        <img src="img/meinv1.jpg" draggable="false" />
+        <img src="img/meinv2.jpg" draggable="false" />
+        <img src="img/meinv3.jpg" draggable="false" />
+        <img src="img/meinv4.jpg" draggable="false" />
+        <img src="img/meinv5.jpg" draggable="false" />
+        <img src="img/meinv6.jpg" draggable="false" />
+        <img src="img/meinv7.jpg" draggable="false" />
+        <img src="img/meinv8.jpg" draggable="false" />
+        <img src="img/meinv9.jpg" draggable="false" />
+        <p></p>
+    </div>
+    <script language="javascript">
+        for (i in document.images) document.images[i].ondragstart = imgdragstart;
+    </script>
+    <script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        $(function (){
+            var imgl = $("div.pic img").size();
+            var deg = 360/imgl;
+            var roY = 0;
+            var rox = -10;
+            var xn = 0, yn = 0;
+            var play = null;
+			
+            $("div.pic img").each(function (i) {
+                $(this).css({
+                    "transform": "rotateY("+i*deg+ "deg) translateZ(350px)"
+                });
+                $(this).attr('ondragstart', 'return false');
+            });
+            $(document).mousedown(function (ev) {
+        
+                var x_ = ev.clientX;
+                var y_ = ev.clientY;
+                clearInterval(play);
+                $(this).bind("mousemove", function (ev) {
+				
+                    var x = ev.clientX;
+                    var y = ev.clientY;
+
+                    xn = x - x_;
+                    yn = y - y_;
+                    varyn = y-y_;
+                    roY += xn * 0.2;
+                    rox -= yn * 0.1;
+                  
+                    $('div.pic').css({
+                        transform: 'perspective(800px) rotateX('+rox+'deg) rotateY(' + roY + 'deg)'
+                    })
+
+                    x_ = ev.clientX;
+                    y_ = ev.clientY;
+                });
+            }).mouseup(function () {
+                $(this).unbind("mousemove");
+              var play=setInterval(function () {
+                   xn *= 0.95;
+                   yn *= 0.95;
+                   if (Math.abs(xn) < 1 && Math.abs(yn)<1) clearInterval(play);
+
+                   roY += xn * 0.2;
+                   rox -= yn * 0.1;
+                   $('div.pic').css({
+                       transform: 'perspective(800px) rotateX(' + rox + 'deg) rotateY(' + roY + 'deg)'
+                   })
+                },30)
+            });
+        });
+    </script>    
 </body>
 </html>
-			
