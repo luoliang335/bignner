@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/animate.css" />
+		<style type="text/css">
+			div {margin: 100px auto;
+				width: 200px;
+				height: 150px;
+				background: #ddd;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box" class="">
+
+		</div>
+		<input type="button" name="" id="btn" value="点击切换效果" />
+	</body>
+	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		
+		$("#btn").click(function() {
+			var arr = [
+			'bounce',
+			'flash',
+			'pulse',
+			'rubberBand',
+			'shake',
+			'headShake',
+			'swing',
+			'tada',
+			'wobble',
+			'jello',
+			'bounceIn',
+			'bounceInDown',
+			'bounceInLeft',
+			'bounceInRight',
+			'bounceInUp',
+			'bounceOut',
+			'bounceOutDown',
+			'bounceOutLeft',
+			'bounceOutRight',
+			'bounceOutUp',
+			'fadeIn',
+			'fadeInDown',
+			'fadeInDownBig',
+			'fadeInLeft',
+			'fadeInLeftBig',
+			'fadeInRight',
+			'fadeInRightBig',
+			'fadeInUp',
+			'fadeInUpBig',
+			'fadeOut',
+			'fadeOutDown',
+			'fadeOutDownBig',
+			'fadeOutLeft',
+			'fadeOutLeftBig',
+			'fadeOutRight',
+			'fadeOutRightBig',
+			'fadeOutUp',
+			'fadeOutUpBig',
+			'flipInX',
+			'flipInY',
+			'flipOutX',
+			'flipOutY',
+			'lightSpeedIn',
+			'lightSpeedOut',
+			'rotateIn',
+			'rotateInDownLeft',
+			'rotateInDownRight',
+			'rotateInUpLeft',
+			'rotateInUpRight',
+			'rotateOutDownLeft',
+			'rotateOut',
+			'rotateOutDownRight',
+			'rotateOutUpLeft',
+			'rotateOutUpRight',
+			'hinge',
+			'jackInTheBox',
+			'rollIn',
+			'rollOut',
+			'zoomIn',
+			'zoomInDown',
+			'zoomInLeft',
+			'zoomInRight',
+			'zoomInUp',
+			'zoomOut',
+			'zoomOutDown',
+			'zoomOutLeft',
+			'zoomOutRight',
+			'zoomOutUp',
+			'slideInDown',
+			'slideInLeft',
+			'slideInRight',
+			'slideInUp',
+			'slideOutDown',
+			'slideOutLeft',
+			'slideOutRight',
+			'slideOutUp',
+		];
+		var act = arr[Math.floor(Math.random() * arr.length)];
+		console.log(act);
+			$('#box').attr("class","animated "+ act);
+			
+			$("#btn").val(act);
+		})
+	</script>
+
+</html>

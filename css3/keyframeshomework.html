@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+				* {
+				margin: 0;
+				padding: 0;
+			}
+			/*----------------动画1----------------*/
+			
+			#foliage {
+				width: 89px;
+				height: 66px;
+				background: url(img/page.png)no-repeat;
+				background-position: 0px -149px;
+				border: none;
+				animation: piao 4s ease-in-out infinite;
+			}
+			
+			@keyframes piao {
+				0% {
+					transform: translateY(-100px);
+					opacity: 1;
+				}
+				100% {
+					transform: translateX(500px)translateY(500px) rotateZ(50deg);
+					opacity: 0;
+				}
+			}
+			/*----------------动画2----------------*/
+			
+			#math {
+				width: 230px;
+				height: 230px;
+				position: relative;
+				margin: 60px auto;
+			}
+			
+			#sjx {
+				width: 170px;
+				height: 170px;
+				background: url(img/page.png)no-repeat;
+				background-position: 0 -312px;
+				animation: xuanzhuan 3s ease infinite;
+			}
+			
+			#zfx {
+				width: 97px;
+				height: 97px;
+				background: url(img/page.png)no-repeat;
+				background-position: 0 -216px;
+				animation: xuanzhuan 2s ease-in-out infinite;
+			}
+			
+			#yx {
+				width: 138px;
+				height: 138px;
+				background: url(img/page.png)no-repeat;
+				background-position: 0 -482px;
+				animation: xuanzhuan 1s ease-in infinite;
+			}
+			
+			@keyframes xuanzhuan {
+				0% {
+					transform: rotateZ(0deg);
+				}
+				50% {
+					transform: rotateZ(360deg);
+				}
+				100% {
+					transform: rotateZ(360deg);
+				}
+			}
+			/*----------------动画3----------------*/
+			
+			#box {
+				position: relative;
+			}
+			
+			#light {
+				width: 196px;
+				height: 268px;
+				background: url(img/page.png)no-repeat;
+				background-position: 0 -622px;
+				position: absolute;
+				left: 100px;
+			}
+			
+			#bright {
+				width: 340px;
+				height: 254px;
+				background: url(img/page.png)no-repeat;
+				background-position: 0 -890px;
+				position: absolute;
+				left: 25px;
+				top: -68px;
+				animation: bright 1.5s ease-out infinite;
+			}
+			
+			@keyframes bright {
+				from {
+					opacity: 1;
+				}
+				to {
+					opacity: 0;
+				}
+			}
+			/*----------------动画4----------------*/
+			
+			#box2 {
+				position: relative;
+				position: absolute;
+				left: 800px;
+			}
+			
+			#fire {
+				width: 225px;
+				height: 220px;
+				background: url(img/page.png)no-repeat;
+				background-position: -239px 0px;
+				animation: fire 1s ease infinite;
+			}
+			
+			@keyframes fire {
+				0% {
+					transform: translateX(0px)translateY(0px)
+				}
+				50% {
+					transform: translateX(20px)translateY(20px)
+				}
+				100% {
+					transform: translateX(0px)translateY(0px)
+				}
+			}
+			
+			#line {
+				width: 242px;
+				height: 287px;
+				background: url(img/page.png)no-repeat;
+				background-position: -228px -219px;
+				position: absolute;
+				top: 0px;
+				left: 142px;
+				animation: line1 0.5s ease infinite;
+			}
+			
+			#line1 {
+				width: 86px;
+				height: 80px;
+				background: url(img/page.png)no-repeat;
+				background-position: -154px -144px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				animation: line1 0.5s ease infinite;
+			}
+			
+			@keyframes line1 {
+				0% {
+					transform: translateX(400px)translateY(-400px)
+				}
+				100% {
+					transform: translateX(-200px)translateY(200px)
+				}
+		</style>
+	</head>
+
+	<body>
+		<div id="foliage">
+		</div>
+		<div id="math">
+			<div id="sjx"></div>
+			<div id="zfx"></div>
+			<div id="yx"></div>
+		</div>
+		<div id="box">
+			<div id="light"></div>
+			<div id="bright"></div>
+		</div>
+		<div id="box2">
+			<div id="fire"></div>
+			<div id="line"></div>
+			<div id="line1"></div>
+		</div>
+	</body>
+
+</html>
