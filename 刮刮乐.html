@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>刮刮乐思路</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#canvas {
+				background: url(img/btn.png)no-repeat;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="backGround">
+
+		</div>
+		<canvas id="canvas" width="216" height="70"></canvas>
+		<script type="text/javascript">
+			var c = document.getElementById("canvas");
+			var ctx = canvas.getContext("2d");
+			//			遮罩层
+			ctx.fillStyle = "#ccc";
+			ctx.fillRect(0, 0, c.width, c.height);
+			//          鼠标按下,拖动事件
+			c.onmousedown = function() {
+				c.onmousemove = function(event) {
+					//          		重新开始一个新的绘画
+					ctx.beginPath();
+					//          		重叠部分变为透明属性
+					ctx.globalCompositeOperation = "destination-out";
+					//          		画圆,从鼠标的X和Y轴开始，20半径，顺时针画一个整圆
+					ctx.arc(event.offsetX, event.offsetY, 20, 0, 2 * Math.PI, false);
+					//          		填充色随便写,反正会隐藏
+					ctx.fillStyle = "#000000";
+					ctx.fill();
+				}
+			}
+			//          鼠标松开事件,让canvas的拖动效果失效
+			document.onmouseup = function() {
+				canvas.onmousemove = null;
+			}
+		</script>
+	</body>
+
+</html>
